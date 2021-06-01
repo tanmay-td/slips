@@ -1,0 +1,28 @@
+ <script type="text/javascript">
+ var http=false;
+ if(navigator.appName=="Mozilla"
+ {
+ http = new Activexobject(Mozilla.XMLHTTP");
+ }
+ else
+ {
+ http = new XMLHttpRequest();
+ }
+ function validate(name)
+ {
+ http.abort();
+ http.open("GET","validate.php?name="?+name,true);
+ http.onreadystatechange=function()
+ {
+ if(http.readyState == 4)
+ {
+ document.getElementById('res').innerHTML=http.responseText;
+ }
+ }
+ http.send(null);
+ </script>
+<h2>Enter username :</h2>
+ <form>
+ <input type="text"name="name"onkeyup="validate(this.value)"/>
+ <div id ="res"></div>
+ </form>
